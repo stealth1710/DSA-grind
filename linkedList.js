@@ -9,6 +9,7 @@ class Node{
 class LinkedList{
     constructor(){
         this.head = null;
+        this.tail = null;
         this.size = 0;
     }
 
@@ -24,7 +25,11 @@ class LinkedList{
         const node = new Node(value)
         //if the List is empty, add the value to the head of the node
         if(this.isEmpty()){
+
+            //pointing both head and tail at the newly created node
             this.head = node
+            this.tail = node;
+
         }
         //else if its not empty
         else{
@@ -40,19 +45,48 @@ class LinkedList{
         const node = new Node(value);
         if(this.isEmpty()){
             this.head = node;
+            this.tail = node;
 
         }
         else
         {
-
-            let previous = this.head;
-            while(previous.next){
-                previous = previous.next
-            }
-            previous.next = node;
+            this.tail.next = node;
+            this.tail = node;
         }
         this.size++
+    }
 
+    removeFromFront(){
+        if(this.isEmpty()){
+            return null;
+        }
+        const value = this.head.value;
+        this.head = this.head.next;
+        this.size --;
+        return value;
+    }
+
+    removeFromEnd(){
+        if(this.isEmpty()){
+            return null;
+        }
+        const value = this.tail.value;
+        if(this.size === 1){
+            this.head = null;
+            this.tail = null;
+        }
+        else{
+            let previous = this.head;
+
+            while(previous.next !== this.tail){
+                previous = previous.next;
+            }
+
+            previous.next = null
+            this.tail = previous;
+        }
+        this.size --;
+        return value
     }
 
 
@@ -143,7 +177,7 @@ class LinkedList{
 
         let i = 0;
         let currentValue = this.head;
-        while(currentValue){
+        while(currentValue){ // looping twhile the pointer points to null
             if(currentValue.value === value){
                 console.log(`value is found at index ${i}`);
                 return i 
@@ -195,22 +229,22 @@ class LinkedList{
 }
 
 const list = new LinkedList()
+ module.exports = LinkedList;
+// list.append(0)
+// list.append(3)
+// list.append(5)
+// list.append(5)
+// list.insert(44,1)
 
-list.append(0)
-list.append(3)
-list.append(5)
-list.append(5)
-list.insert(44,1)
+// list.removeValue(5)
 
-list.removeValue(5)
+// list.removeFrom(0);
 
-list.removeFrom(0);
+// list.reverseList()
 
-list.reverseList()
+// list.printList()
 
-list.printList()
+// list.search(5)
 
-list.search(5)
-
-console.log(`is list empty? ${list.isEmpty()}`);
-console.log(`List size: ${list.getSize()}`);
+// console.log(`is list empty? ${list.isEmpty()}`);
+// console.log(`List size: ${list.getSize()}`);
