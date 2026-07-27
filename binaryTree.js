@@ -1,3 +1,5 @@
+const Queue = require("./optimisedQueue");
+const queue = new Queue;
 class Node{
     constructor(value){
         this.value = value;
@@ -90,6 +92,74 @@ class BinarySearchTree{
             console.log(` ${root.value} \n ⬇️ `);
         }
     }
+
+    levelOrder(root){
+        //optimised queue implementation
+        queue.enqueue(root);
+        while(!queue.isEmpty()){
+            let currentValue = queue.dequeue()
+            console.log(`${currentValue.value} \n ⬇️`);
+            if(currentValue.left){
+                queue.enqueue(currentValue.left);
+                
+            }
+            if(currentValue.right){
+                queue.enqueue(currentValue.right)
+            }
+        }
+         
+    }
+    min(root){
+        if(!root.left){
+            return root.value
+        }
+        else{
+            return this.min(root.left)
+        }
+
+    }
+
+    max(root){
+        if(!root.right){
+            return root.value
+        }
+        else{
+            return this.max(root.right)
+        }
+    }
+
+    //delete method
+    delete(value){
+        this.root = this.deleteNode(this.root,value)
+    }
+
+    //function to call recursively 
+    deleteNode(root,value){
+        if(root === null){
+            return root;
+        }
+        if(value < root.value){
+            root.left = this.deleteNode(root.left,value)
+        }
+        else if(value > root.value){
+            root.right = this.deleteNode(root.right,value);
+
+        }
+        else{
+            if(!root.left && !root.right){
+                return null
+            }
+            if(!root.left){
+                return root.right;
+            }
+            else if(!root.right){
+                return root.left;
+            }
+            root.value = this.min(root.right);
+            root.right = this.deleteNode(root.right,root.value)
+        }
+        return root
+    }
 }
 
 
@@ -102,19 +172,26 @@ bst.insert(3);
 bst.insert(7);
 
 
-console.log(`Pre Order ⬇️`);
-bst.preOrder(bst.root);
+// console.log(`Pre Order ⬇️`);
+// bst.preOrder(bst.root);
 
-console.log(`In Order ⬇️`);
-bst.inOrder(bst.root)
+// console.log(`In Order ⬇️`);
+// bst.inOrder(bst.root)
 
-console.log(`Post Order ⬇️`);
-bst.postOrder(bst.root)
+// console.log(`Post Order ⬇️`);
 
-console.log(bst.search(bst.root,10));
-console.log(bst.search(bst.root,15));
-console.log(bst.search(bst.root,5));
+
+
+// console.log(bst.search(bst.root,10));
+// console.log(bst.search(bst.root,15));
+// console.log(bst.search(bst.root,5));
+
+// console.log(bst.max(bst.root))
 
 
 // console.log(bst.isEmpty());
+
+bst.delete(7)
+
+bst.levelOrder(bst.root)
 

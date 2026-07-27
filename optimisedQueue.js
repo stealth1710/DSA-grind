@@ -39,26 +39,26 @@ class Queue {
         
     }
 } 
+module.exports = Queue;
+
+// const queue = new Queue
+
+// console.log(queue.isEmpty());
+
+// //adding items to the queue
+// queue.enqueue(10)
+// queue.enqueue(20)
+// queue.enqueue(30)
 
 
-const queue = new Queue
+// //removing items from the queue
 
-console.log(queue.isEmpty());
+// queue.dequeue()
 
-//adding items to the queue
-queue.enqueue(10)
-queue.enqueue(20)
-queue.enqueue(30)
+// queue.print()
 
-
-//removing items from the queue
-
-queue.dequeue()
-
-queue.print()
-
-console.log(
-    queue.peek()
-);
+// console.log(
+//     queue.peek()
+// );
 
 
