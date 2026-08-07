@@ -11,7 +11,7 @@ function romans(string){
     let result = 0 
 
 
-    for(let i = 0 ; i<string.length ; i++){
+    for(let i = 0 ; i<string.length  ; i++){
         let current = romans[string[i]];
 
         let next = romans[string[i+1]];
