@@ -33,8 +33,35 @@
 
 
 function alexaWords(array,k){
-    //will come back to it
+    // converting the long string into an array
+    const words = array.split(' ')
+    const frequency = new Map();
+    //creating a map using for of
+    for(const word of words){
+        frequency.set(word,(frequency.get(word) || 0) + 1 )
+    }
+    
+
+    const mapToArray = Array.from(frequency.entries())
+
+    //Sorting using the most occurences first and then by alphabetical order    
+    mapToArray.sort((a,b)=> {
+        if(b[1] !== a[1]){
+            return b[1] - a[1]
+        }
+
+        return a[0].localeCompare(b[0])
+    })
+
+    return mapToArray.slice(0,k).map((entries) => entries[0])
+    
+    
+    
+    
     
 }
 
-console.log(alexaWords(['play','hard','play'],2));
+console.log( alexaWords('play hard play hard',2));
+
+
+
