@@ -217,14 +217,15 @@ class LinkedList{
     reverseList(){
         let previous = null;
         let current = this.head;
+
         while(current){
             let next = current.next
             current.next = previous;
             previous = current;
-            current = next;
+            current = next
         }
-        this.head = previous
     }
+
     
 }
 
