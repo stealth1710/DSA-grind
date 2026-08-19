@@ -25,5 +25,5 @@ function subArraySum(array,target){
     //leet code sub array sum equals k approach
 
 
-//leetcode 256
+    //leetcode 256
 }
