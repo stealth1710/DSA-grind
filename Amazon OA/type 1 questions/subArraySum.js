@@ -24,6 +24,30 @@
 function subArraySum(array,target){
     //leet code sub array sum equals k approach
 
+    const prefixCount = new Map();
+
+    let count = 0;
+    let prefixSum = 0;
+
+    prefixCount.set(0,1)
+
+    for(let weight of array){
+        prefixSum = weight + prefixSum;
+
+        const needed = prefixSum - target;
+
+        if(prefixCount.has(needed)){
+            count = count + prefixCount.get(needed)
+        }
+         
+        prefixCount.set(prefixSum,(prefixCount.get(prefixSum) || 0) + 1)
+    }
+
+    return count;
+
 
     //leetcode 256
 }
+
+
+console.log(subArraySum([1, 2, 3],3));
