@@ -51,3 +51,6 @@ function subArraySum(array,target){
 
 
 console.log(subArraySum([1, 2, 3],3));
+
+console.log(subArraySum([1, -1, 0],0));
+
