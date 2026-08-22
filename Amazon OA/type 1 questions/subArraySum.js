@@ -54,3 +54,4 @@ console.log(subArraySum([1, 2, 3],3));
 
 console.log(subArraySum([1, -1, 0],0));
 
+// need to learn the explaination thouroughly
