@@ -49,16 +49,11 @@ function alexaWords(array,k){
         if(b[1] !== a[1]){
             return b[1] - a[1]
         }
-
+        //alphabetical comparison in js
         return a[0].localeCompare(b[0])
     })
-
+    //returning the top 3 and mapping just the words in the array
     return mapToArray.slice(0,k).map((entries) => entries[0])
-    
-    
-    
-    
-    
 }
 
 console.log( alexaWords('play hard play hard',2));
