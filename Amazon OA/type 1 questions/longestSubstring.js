@@ -30,13 +30,18 @@
 // Explanation: "AB12" is the longest substring without repeats, length 4.
 
 function longest(string){
+    //keeping the datas in a set to avoid the duplicates
     const charSet = new Set();
-    
-    let left = 0;
-    let maxLength = 0;
 
+    //we use sliding window approach for this problem, the window shrinks if the condition is  met  
+    let left = 0;
+
+    //keeping track of the max length to update and return it
+    let maxLength = 0; 
+    
+    //looping through the string
     for(let right = 0; right < string.length ; right ++){
-        while(charSet.has(string[right])){
+        while(charSet.has(string[right])){ 
             charSet.delete(string[left]);
             left++
 
