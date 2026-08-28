@@ -53,3 +53,10 @@ function longest(string){
 }
 
 console.log(longest("ABCABCBB"));
+
+console.log(longest('BBBBB'));
+
+console.log(longest('PWWKEW'));
+
+console.log(longest(''));
+
