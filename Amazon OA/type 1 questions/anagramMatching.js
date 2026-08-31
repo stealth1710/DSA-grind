@@ -46,4 +46,4 @@ function anagramCheck(s1,s2){
     return true;
 }
 
-console.log(anagramCheck('adnan','adila'));
+console.log(anagramCheck('aab','abb'));
