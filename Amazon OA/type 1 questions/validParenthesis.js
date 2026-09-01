@@ -35,6 +35,11 @@
 // Explanation: Opening bracket with no matching close.
 
 function validParenthesis(string){
-    const stack = []
+    const stack = [];
+    const pairs = {
+        '(':')',
+        '{':'}',
+        '[':']'
+    }
 
 }
