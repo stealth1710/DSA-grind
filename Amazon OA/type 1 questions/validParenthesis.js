@@ -37,9 +37,25 @@
 function validParenthesis(string){
     const stack = [];
     const pairs = {
-        '(':')',
-        '{':'}',
-        '[':']'
+        ')':'(',
+        '}':'{',
+        ']':'['
     }
-// will come back to it in sha allah
+
+
+    for (let i = 0 ; string.length ; i++){
+        const char = string[i];
+        if(char === '[' || char === '{' || char === '('){
+            stack.push(char)
+        }
+        //if its the closing bracket
+        else{
+            if(stack.length === 0 || stack.pop() != pairs[char]  ){
+                return false
+
+            }
+        }
+    }
+    return stack.length === 0;
+
 }
