@@ -1,31 +1,32 @@
-function mergeSort(arr){
-
-    if(arr.length < 2){
-        return arr
+function merge(array){
+    if(array.length < 2 ){
+        return array
     }
 
-    const middle = Math.floor(arr.length/2);
-    const leftArr = arr.slice(0,middle);
-    const rightArr = arr.slice(middle);
-
-    return merge(mergeSort(leftArr),mergeSort(rightArr))
+    let middle = Math.floor(array.length / 2)
+    let left = array.slice(0,middle);
+    let right = array.slice(middle);
+    
+    return mergeSort(merge(left),merge(right));
 
 }
 
-function merge(leftArr,rightArr){
+function mergeSort(leftArr,rightArr){
+    const sortedArray = [];
 
-    const sortedArray = []
-    while (leftArr.length && rightArr.length){
-        if(leftArr[0] >= rightArr[0]){
-            sortedArray.push(rightArr.shift())
-        }
-        else{
+    while(leftArr.length && rightArr.length){
+        if(leftArr[0] <= rightArr[0]){
             sortedArray.push(leftArr.shift())
         }
+        else{
+            sortedArray.push(rightArr.shift())
+        }
     }
-    return [...sortedArray,...rightArr,...leftArr]
+
+
+    return [...sortedArray,...leftArr,...rightArr]
 }
 
-const arr = [0,20,-2,4,-6];
+const array = [12,2,34,7,8,9];
 
-console.log(mergeSort(arr));
+console.log(merge(array));
