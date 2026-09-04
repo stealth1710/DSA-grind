@@ -214,7 +214,47 @@ class LinkedList{
         }
     }
 
+    removeMiddle(){
+  
+    if(this.isEmpty()){
+      return null;
+    }
+    if(this.size === 1){
+      const removedNode = this.head;
+      this.head = null;
+      this.tail = null;
+      this.size --;
+      return removedNode;
+    }
+  
+    
+    let  previous = this.head;
+    let removedNode;
+    
+    for(let i = 1; i < Math.floor(this.size/2); i++ ){
+      previous = previous.next
+    }
+    removedNode = previous.next;
+    previous.next = removedNode.next;
+
+    if(removedNode === this.tail){
+      this.tail = previous;
+    }
+    this.size --;
+    return removedNode;
+  }
+
+  findingMiddle(){
+    let current = this.head;
+
+    for(let i = 0; i< Math.floor(this.size/2);i++){
+      current = current.next
+    }
+    return current.value
+  }
+
     reverseList(){
+
         let previous = null;
         let current = this.head;
 
