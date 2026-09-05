@@ -257,6 +257,7 @@ class LinkedList{
 
         let previous = null;
         let current = this.head;
+        this.tail = this.head;
 
         while(current){
             let next = current.next
@@ -264,6 +265,8 @@ class LinkedList{
             previous = current;
             current = next
         }
+
+        this.head = previous;
     }
 
     
@@ -271,19 +274,19 @@ class LinkedList{
 
 const list = new LinkedList()
  module.exports = LinkedList;
-// list.append(0)
-// list.append(3)
-// list.append(5)
-// list.append(5)
-// list.insert(44,1)
+ list.append(0)
+ list.append(3)
+ list.append(5)
+ list.append(5)
+ list.insert(44,1)
 
 // list.removeValue(5)
 
 // list.removeFrom(0);
 
-// list.reverseList()
+ list.reverseList()
 
-// list.printList()
+ list.printList()
 
 // list.search(5)
 
