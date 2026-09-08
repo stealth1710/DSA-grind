@@ -260,7 +260,7 @@ class LinkedList{
         this.tail = this.head;
 
         while(current){
-            let next = current.next
+            let next = current.next // next is tracked carefully so that we dont lose anything behind
             current.next = previous;
             previous = current;
             current = next
